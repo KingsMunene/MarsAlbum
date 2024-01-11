@@ -1,4 +1,7 @@
 package com.example.marsalbum.ui.screens
 
-class MarsAlbumUiState {
+sealed class MarsAlbumUiState {
+    data class Success(val photo: String): MarsAlbumUiState()
+    object Error: MarsAlbumUiState()
+    object Loading: MarsAlbumUiState()
 }
