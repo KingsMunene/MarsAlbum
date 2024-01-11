@@ -1,9 +1,10 @@
 package com.example.marsalbum.data
 
+import com.example.marsalbum.network.MarsAlbumApiService
 import com.example.marsalbum.network.MarsPhoto
 
-class NetworlMarsPhotoRepositoryImplementation: MarsPhotosRepository{
-    override suspend fun getMarsPhotos(): List<MarsPhoto> {
-        TODO("Not yet implemented")
-    }
+class NetworkMarsAlbumRepositoryImplementation(
+    private val retrofitService: MarsAlbumApiService
+): MarsAlbumRepository{
+    override suspend fun getMarsPhotos(): List<MarsPhoto> = retrofitService.getPhotos()
 }
